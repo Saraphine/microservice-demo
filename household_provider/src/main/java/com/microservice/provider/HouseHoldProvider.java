@@ -50,7 +50,7 @@ public class HouseHoldProvider {
             list.add(houseHold3);
             return new Result(list);
         }else{
-            return new Result("本店只销售冰箱、空调、洗衣机, 其余商品暂无上架, 敬请期待 ......");
+            return new Result("本店不销售" + name + "，本店只销售冰箱、空调、洗衣机, 其余商品暂无上架, 敬请期待 ......");
         }
     }
 
