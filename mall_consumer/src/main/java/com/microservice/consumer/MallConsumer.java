@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 import java.util.List;
 
@@ -49,9 +50,9 @@ public class MallConsumer {
      * @param name
      * @return
      */
-    @Path("/sell")
+    @Path("/sell/{name}")
     @GET
-    public Result sellElec(@QueryParam("name")String name)throws Exception{
+    public Result sellElec(@PathParam("name")String name)throws Exception{
         return houseHoldProvider.sell(name);
     }
 
@@ -70,9 +71,9 @@ public class MallConsumer {
      * @param name
      * @return
      */
-    @Path("/conf")
+    @Path("/conf/{name}")
     @GET
-    public String getStr(@QueryParam("name")String name){
+    public String getStr(@PathParam("name")String name){
         return sellprefix.getValue()+""+houseHoldProvider.getStr(name);
     }
     //================================v1
@@ -81,9 +82,9 @@ public class MallConsumer {
      * @param name
      * @return
      */
-    @Path("/sellex")
+    @Path("/sellex/{name}")
     @GET
-    public Result sellElecEx(@QueryParam("name") String name) throws Exception {
+    public Result sellElecEx(@PathParam("name") String name) throws Exception {
         return houseHoldProviderDeta.sell(name);
     }
 
@@ -103,9 +104,9 @@ public class MallConsumer {
      * @param pname
      * @return
      */
-    @Path("/sellpc")
+    @Path("/sellpc/{pname}")
     @GET
-    public PCService sellPc(@QueryParam("pname")String pname){
+    public PCService sellPc(@PathParam("pname") String pname){
         return pcServiceProvider.sell(pname);
     }
     //所有外设
