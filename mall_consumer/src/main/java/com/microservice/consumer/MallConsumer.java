@@ -4,6 +4,7 @@ import com.microservice.model.HouseHold;
 import com.microservice.model.PCService;
 import com.microservice.model.Result;
 import com.microservice.service.HouseHoldProvider;
+import com.microservice.service.HouseHoldProviderDeta;
 import com.microservice.service.PCServiceProvider;
 import com.netflix.config.DynamicPropertyFactory;
 import com.netflix.config.DynamicStringProperty;
@@ -26,6 +27,9 @@ public class MallConsumer {
     @RpcReference(microserviceName = "householdprovider",schemaId = "household")
     private HouseHoldProvider houseHoldProvider;
 
+    //rpc远程注入HouseHoldProviderDeta
+    @RpcReference(microserviceName = "householdproviderdeta", schemaId = "household")
+    private HouseHoldProviderDeta houseHoldProviderDeta;
 
     //rpc远程注入PCServiceProvider
     @RpcReference(microserviceName = "pcserviceprovider",schemaId = "pcservice")
@@ -72,6 +76,26 @@ public class MallConsumer {
         return sellprefix.getValue()+""+houseHoldProvider.getStr(name);
     }
     //================================v1
+    /****
+     * 家电业务
+     * @param name
+     * @return
+     */
+    @Path("/sellex")
+    @GET
+    public Result sellElecEx(@QueryParam("name") String name) throws Exception {
+        return houseHoldProviderDeta.sell(name);
+    }
+
+    /****
+     * 查看所有
+     * @return
+     */
+    @Path("/listex")
+    @GET
+    public List<HouseHold> listEx() {
+        return houseHoldProviderDeta.list();
+    }
 
     //=========pcservice v0============
     /****
