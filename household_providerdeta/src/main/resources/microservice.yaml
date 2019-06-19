@@ -1,6 +1,6 @@
 APPLICATION_ID: microservice-shop
 service_description:
-  name: householdprovider
+  name: householdproviderdeta
   version: 0.0.4
   description: Basic version of householdprovider service
 cse:
