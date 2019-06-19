@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 //生产者
 @RestSchema(schemaId = "household")
-@RequestMapping(path = "/provider/v1")
+@RequestMapping(path = "/provider/v0")
 public class HouseHoldProvider {
 
     private HouseHold houseHold1 = new HouseHold("无霜冷藏冰箱", 2500.00, "海尔", "箱门结构: 三门式, 制冷方式: 风冷, 能效等级: 一级, 服务: 本店节假日同城开启配送服务，只要活动期间付款成功，均可享受免费配送服务");
