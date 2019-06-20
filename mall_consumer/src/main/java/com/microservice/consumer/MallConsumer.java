@@ -16,7 +16,6 @@ import org.slf4j.LoggerFactory;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.QueryParam;
 import java.util.List;
 
 //消费者
@@ -29,8 +28,8 @@ public class MallConsumer {
     private HouseHoldProvider houseHoldProvider;
 
     //rpc远程注入HouseHoldProviderDeta
-    @RpcReference(microserviceName = "householdproviderdeta", schemaId = "household")
-    private HouseHoldProviderDeta houseHoldProviderDeta;
+    //@RpcReference(microserviceName = "householdproviderdeta", schemaId = "household")
+    //private HouseHoldProviderDeta houseHoldProviderDeta;
 
     //rpc远程注入PCServiceProvider
     @RpcReference(microserviceName = "pcserviceprovider",schemaId = "pcservice")
@@ -82,21 +81,21 @@ public class MallConsumer {
      * @param name
      * @return
      */
-    @Path("/sellex/{name}")
-    @GET
-    public Result sellElecEx(@PathParam("name") String name) throws Exception {
-        return houseHoldProviderDeta.sell(name);
-    }
+    //@Path("/sellex/{name}")
+    //@GET
+    //public Result sellElecEx(@PathParam("name") String name) throws Exception {
+        //return houseHoldProviderDeta.sell(name);
+    //}
 
     /****
      * 查看所有
      * @return
      */
-    @Path("/listex")
-    @GET
-    public List<HouseHold> listEx() {
-        return houseHoldProviderDeta.list();
-    }
+    //@Path("/listex")
+    //@GET
+    //public List<HouseHold> listEx() {
+        //return houseHoldProviderDeta.list();
+    //}
 
     //=========pcservice v0============
     /****
